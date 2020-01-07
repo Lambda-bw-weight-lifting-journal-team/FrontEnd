@@ -1,12 +1,13 @@
 import React from 'react';
-import SignIn from './components/SignIn';
+import Navigation from './components/Navigation';
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-    <SignIn/>          
-    </div>
+    <>
+     <Navigation/>
+    </>
   );
-}
-
+};
 export default App;
