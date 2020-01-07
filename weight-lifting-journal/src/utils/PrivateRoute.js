@@ -29,7 +29,7 @@ export const PrivateRoute = ({ children, ...rest }) => {
 export const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: "https://bw-weight-lifting.herokuapp.com/api/users/:id",
+    baseURL: "https://bw-weight-lifting.herokuapp.com/api",
     headers: {
       Authorization: `Bearer ${token}`
     }
