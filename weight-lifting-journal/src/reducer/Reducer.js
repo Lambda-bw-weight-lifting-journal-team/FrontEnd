@@ -2,7 +2,7 @@ import {
   CREATE_USER_START,
   CREATE_USER_SUCCESS,
   CREATE_USER_FAIL
-} from "../actions/Signup";
+} from "../actions/SignupAction";
 
 const newUserState = () => ({
   username: "",
