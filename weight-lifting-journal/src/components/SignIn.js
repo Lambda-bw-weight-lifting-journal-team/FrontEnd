@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
-import * as Yup from "yup";
-import axios from "axios";
+import * as Yup from 'yup';
+import axios from 'axios';
+import Navigation from './Navigation'
 
-function UserForm({ values, errors, touched, status }) {
+function LoginForm({ values, errors, touched, status }) {
     const [username, setpassword] = useState([]);
 
     useEffect(() => {
@@ -14,13 +15,15 @@ function UserForm({ values, errors, touched, status }) {
     
     return (
         <div>
+
+            <section>
             <Form>
                 <h1>User Sign In</h1>
                 <label>
                     User Name: 
                     <Field type="text" name="username" placeholder="Enter username" autoComplete="none"/>
                     {touched.username && errors.username && (
-                        <p>{errors.password}</p>
+                        <p>{errors.username}</p>
                     )}
                 </label>
                 <br/>
@@ -36,14 +39,23 @@ function UserForm({ values, errors, touched, status }) {
                     Remember User Name?:
                     <Field type="checkbox" className="checkbox" name="tos" checked={values.tos} />
                 </label>
-                <button type="submit" >Sign In</button>
+                <button type="submit" >Sign In</button><br/>
+                <a>Register</a>
             </Form>
+            {username.map(user => (
+                <div key={user.username}>
+                    <h2>Welcome Back!</h2>
+                    <p>Name: {user.username}</p>
+                    <button>Create a new work out</button>
+                </div>
+            ))}
+            </section>
         </div>
         
     )
 }
 
-const FormikUserForm = withFormik({
+const FormikLoginForm = withFormik({
     mapPropsToValues({ username, password, }) {
         return {
             username: username || "",
@@ -57,7 +69,7 @@ const FormikUserForm = withFormik({
     }),
     handleSubmit(values, { setStatus, resetForm }) {
         axios
-        .post('https://bw-weight-lifting.herokuapp.com/api/auth/login', values)
+        .get('https://bw-weight-lifting.herokuapp.com/api/users/:id', values)
         .then(res => {
             setStatus(res.data);
             console.log(res);
@@ -67,6 +79,6 @@ const FormikUserForm = withFormik({
         })
         .finally(resetForm())
     }
-})(UserForm)
+})(LoginForm)
 
-export default FormikUserForm;
+export default FormikLoginForm;
