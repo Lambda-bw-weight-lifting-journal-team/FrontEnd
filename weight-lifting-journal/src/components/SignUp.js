@@ -1,7 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
-import * as Yup from "yup";
-import axios from "axios";
+import * as Yup from 'yup';
+import axios from 'axios';
+import styled from 'styled-components'
+
+const StyledDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  width: 75%;
+  height: 200px;
+  margin: 2% auto;
+  padding: 2%;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background: #eee;
+  
+  `;
 
 function UserForm({ values, errors, touched, status }) {
     const [users, setUsers] = useState([]);
@@ -13,7 +28,7 @@ function UserForm({ values, errors, touched, status }) {
 
     
     return (
-        <div>
+        <StyledDiv>
             <Form>
                 <h1>User Registration</h1>
                 <label>
@@ -54,7 +69,7 @@ function UserForm({ values, errors, touched, status }) {
                     <p>Welcome!</p>
                 </div>
             ))}
-        </div>
+        </StyledDiv>
         
     )
 }

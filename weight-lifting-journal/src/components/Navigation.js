@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch, Router } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import MarketingPage from './MarketingPage';
 import AboutPage from './AboutPage';
@@ -70,9 +70,9 @@ const Navigation = () => {
                     <Route exact path="/">
                         <MarketingPage/>
                     </Route>
-                    <Router exact path="/about-page">
+                    <Route exact path="/about-page">
                         <AboutPage />
-                    </Router>
+                    </Route>
                     <Route exact path="/sign-in">
                         <SignIn />
                     </Route>

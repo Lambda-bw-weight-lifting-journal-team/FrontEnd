@@ -2,19 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import Navigation from './Navigation'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLogin = styled.div`
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  width: 75%;
+  height: 200px;
+  margin: 2% auto;
+  padding: 2%;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background: #eee;
+  
+  `;
 
 function LoginForm({ values, errors, touched, status }) {
-    const [username, setpassword] = useState([]);
+    const [username, setusername] = useState([]);
 
     useEffect(() => {
-        status && setpassword(username => [...username, status]);
+        status && setusername(username => [...username, status]);
     }, [status])
 
 
     
     return (
-        <div>
+        <StyledLogin>
 
             <section>
             <Form>
@@ -39,18 +54,19 @@ function LoginForm({ values, errors, touched, status }) {
                     Remember User Name?:
                     <Field type="checkbox" className="checkbox" name="tos" checked={values.tos} />
                 </label>
-                <button type="submit" >Sign In</button><br/>
-                <a>Register</a>
+                <button type="submit" >Submit</button><br/>
+                <Link to="/sign-up">Register</Link>
             </Form>
-            {username.map(user => (
-                <div key={user.username}>
+            {username.map(username => (
+                <div key={username.id}>
                     <h2>Welcome Back!</h2>
-                    <p>Name: {user.username}</p>
-                    <button>Create a new work out</button>
+                    <p>Name: {username.username}</p>
+                    <p>Add a workout</p>
+                    <button>Lets Get Started</button>
                 </div>
             ))}
             </section>
-        </div>
+        </StyledLogin>
         
     )
 }
@@ -69,7 +85,7 @@ const FormikLoginForm = withFormik({
     }),
     handleSubmit(values, { setStatus, resetForm }) {
         axios
-        .get('https://bw-weight-lifting.herokuapp.com/api/users/:id', values)
+        .get('https://reqres.in/api/users', values)
         .then(res => {
             setStatus(res.data);
             console.log(res);
