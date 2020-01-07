@@ -4,10 +4,10 @@ import * as Yup from "yup";
 import axios from "axios";
 
 function UserForm({ values, errors, touched, status }) {
-    const [username, password] = useState([]);
+    const [username, setpassword] = useState([]);
 
     useEffect(() => {
-        status && setUsers(users => [...users, status]);
+        status && setpassword(username => [...username, status]);
     }, [status])
 
 
@@ -18,7 +18,7 @@ function UserForm({ values, errors, touched, status }) {
                 <h1>User Sign In</h1>
                 <label>
                     User Name: 
-                    <Field type="text" name="username" placeholder="Enter UserName" autoComplete="none"/>
+                    <Field type="text" name="username" placeholder="Enter username" autoComplete="none"/>
                     {touched.username && errors.username && (
                         <p>{errors.password}</p>
                     )}
