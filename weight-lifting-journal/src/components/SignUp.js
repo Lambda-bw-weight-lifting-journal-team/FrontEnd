@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
   align-items: center;
   flex-flow: column;
   width: 75%;
-  height: 200px;
+  height: 100%;
   margin: 2% auto;
   padding: 2%;
   border: 2px solid #000;
@@ -32,40 +32,27 @@ function UserForm({ values, errors, touched, status }) {
             <Form>
                 <h1>User Registration</h1>
                 <label>
-                    Name: 
-                    <Field type="text" name="name" placeholder="Enter Name" autoComplete="none" />
+                    User Name: 
+                    <Field type="text" name="username" placeholder="Enter a User Name" autoComplete="none" />
                     {touched.name && errors.name && (
                         <p className="errors">{errors.name}</p>
                     )}
                 </label>
                 <br/>
                 <label>
-                    Email: 
-                    <Field type="text" name="email" placeholder="Enter Email" autoComplete="none"/>
-                </label>
-                <br/>
-                <label>
                     Password:
-                <Field type="password" name="password" placeholder="Enter Password"  autoComplete="none"/>
+                <Field type="password" name="password" placeholder="Enter a Password"  autoComplete="none"/>
                     {touched.password && errors.password && (
                         <p className="errors">{errors.password}</p>
                     )}                    
                 </label>
                 <br/>
-                <label>
-                    Terms Of Service:
-                    <Field type="checkbox" className="checkbox" name="tos" checked={values.tos} />
-                
-                {errors.tos && (
-                    <p className="errors">{errors.tos}</p>
-                )}
-                </label>
                 <button type="submit" >Submit</button>
             </Form>
             {users.map(user => (
-                <div className="user-card" key={user.id}>
+                <div key={user.id}>
                     <h2>New User!</h2>
-                    <p>Name: {user.name}</p>
+                    <p>Name: {user.username}</p>
                     <p>Welcome!</p>
                 </div>
             ))}
@@ -75,21 +62,18 @@ function UserForm({ values, errors, touched, status }) {
 }
 
 const FormikUserForm = withFormik({
-    mapPropsToValues({ name, email, password, tos }) {
+    mapPropsToValues({ username, password }) {
         return {
-            name: name || "",
-            email: email || "",
+            username: username || "",
             password: password || "",
-            tos: tos || false
         };
     },
     validationSchema: Yup.object().shape({
-        name: Yup.string().required(),
+        username: Yup.string().required(),
         password: Yup.string().required(),
-        tos: Yup.bool().oneOf([true], 'You must accept the Terms of Service')
     }),
     handleSubmit(values, { setStatus, resetForm }) {
-        axios.post('https://reqres.in/api/users', values)
+        axios.post('https://bw-weight-lifting.herokuapp.com/api/auth/register', values)
         .then(res => {
             setStatus(res.data);
             console.log(res);
