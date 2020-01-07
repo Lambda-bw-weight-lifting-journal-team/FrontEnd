@@ -1,15 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
-
 // components
 import SignIn from './components/SignIn';
 import AddWorkout from "./components/AddWorkout";
 import PrivateRoute from "./components/PrivateRoute";
+import Navigation from './components/Navigation';
 
-function App() {
+
+
+const App = () => {
   return (
     <Router>
       <div className="App">
+        <Navigation/>
         <SignIn/>          
       </div>
       <div>
@@ -17,6 +20,5 @@ function App() {
       </div>
     </Router>
   );
-}
-
+};
 export default App;
