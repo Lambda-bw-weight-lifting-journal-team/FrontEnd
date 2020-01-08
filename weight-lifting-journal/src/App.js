@@ -1,22 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import Navigation from './components/Navigation';
 
-// components
-import SignIn from './components/SignIn';
-import AddWorkout from "./components/AddWorkout";
-import PrivateRoute from "./components/PrivateRoute";
 
-function App() {
+
+const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <SignIn/>          
-      </div>
-      <div>
-        <PrivateRoute path="/protected" component={AddWorkout} />
-      </div>
-    </Router>
+    <>
+     <Navigation/>
+    </>
   );
-}
-
+};
 export default App;
