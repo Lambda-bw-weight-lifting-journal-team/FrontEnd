@@ -8,62 +8,60 @@ import SignUp from './SignUp';
 
 
 const Navi = styled.nav`
-  background: #007343;
-  padding: 4px;
-  height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    font-family: Roboto;
+    background-color: #00a35e;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    font-size: 62.5%;
 `;
 
 const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: left;
-  color: #fff;
+    font-size: 1.5rem;
+    font-style: none;
+    color: white;
+    margin: 30px;
 `;
 
 const NavLinks = styled.div`
-  color: #fff;
-  text-align right;
-  display: flex;
-  justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    font-size: 62.5%;
+    display: flex-row;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    font-style: none;
+    color: white;
+    margin-top: 25px;
 `;
 
 const StyledLink = styled(Link)`
-    text-decoration: none;
+    color: white;
+    font-style: none;
+    margin-right: 30px;
+    /* text-decoration: none;
 
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
-    }
-`;
-
-const FormInput = styled.input`
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+    } */
 `;
 
 const Navigation = () => {
     return (
         <div>
             <Navi>
-                <Title>Weight Lifting Journal</Title>
+                <Title>Weightlifting Journal</Title>
                 <NavLinks>
                     <StyledLink to="/"> Home </StyledLink>
                     <StyledLink to="/about-page"> About </StyledLink>
                     <StyledLink to="/sign-in"> Sign In </StyledLink>
                     <StyledLink to="/sign-up"> Sign Up </StyledLink>
-                    <form>
-                        <label>
-                            <FormInput type="text" name="search" placeholder="Search.." />
-                        </label>
-                    </form>
                 </NavLinks>
             </Navi>
                 <Switch>

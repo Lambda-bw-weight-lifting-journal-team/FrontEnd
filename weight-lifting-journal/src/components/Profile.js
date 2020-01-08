@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
+=======
+import { connect } from "react-redux";
+>>>>>>> efa06213459b2f87e7565e7cb3868b47bca12404
 
 import AddWorkOuts from "./AddWorkOuts";
 
@@ -12,10 +16,10 @@ const Profile = props => {
 
     return (
         <div>
-            <h2>{props.username}</h2>
+            <h2>Welcome, {props.username}</h2>
             <h3>Workout History</h3>
             <ul>
-                {props.exercises.map(exercise => {
+                {props.state.exercises.map(exercise => (
                     <li>
                         <p>name: {exercise.name}</p>
                         <p>{exercise.date}</p>
@@ -23,7 +27,7 @@ const Profile = props => {
                         <p>reps: {exercise.reps_completed}</p>
                         <p>region: {exercise.body_region}</p>
                     </li>
-                })}
+                ))}
             </ul>
             <button onClick={() => {setAddMode(true)}}>Add Workout</button>
             {addMode && <AddWorkOuts addMode={addMode} />}
