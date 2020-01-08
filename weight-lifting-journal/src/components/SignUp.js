@@ -19,11 +19,11 @@ const StyledDiv = styled.div`
   `;
 
 function UserForm({ values, errors, touched, status }) {
-    const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        status && setUsers(users => [...users, status]);
-    }, [status])
+  useEffect(() => {
+    status && setUsers(users => [...users, status]);
+  }, [status])
 
 
     
@@ -85,4 +85,4 @@ const FormikUserForm = withFormik({
     }
 })(UserForm)
 
-export default FormikUserForm;
+export default FormikUserSignUpForm;
