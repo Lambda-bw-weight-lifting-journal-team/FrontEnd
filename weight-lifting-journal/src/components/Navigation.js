@@ -62,11 +62,6 @@ const Navigation = () => {
                     <StyledLink to="/about-page"> About </StyledLink>
                     <StyledLink to="/sign-in"> Sign In </StyledLink>
                     <StyledLink to="/sign-up"> Sign Up </StyledLink>
-                    <form>
-                        <label>
-                            <FormInput type="text" name="search" placeholder="Search.." />
-                        </label>
-                    </form>
                 </NavLinks>
             </Navi>
                 <Switch>
