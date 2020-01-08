@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { signUpreducer } from './reducer/Reducer';
 
 const store = createStore(

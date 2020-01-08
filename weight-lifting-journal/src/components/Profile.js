@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-=======
 import { connect } from "react-redux";
->>>>>>> efa06213459b2f87e7565e7cb3868b47bca12404
 
 import AddWorkOuts from "./AddWorkOuts";
 

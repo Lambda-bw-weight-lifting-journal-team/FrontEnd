@@ -15,9 +15,10 @@ const App = () => {
     <Router>
       <div className="App">
         <Navigation />
-        <SignIn />
         <Route exact path='/' render={props => <FormikUserSignUpForm {...props} />} />
-        <Route path='/sign-up' render={props => <FormikUserSignUpForm {...props} />} />
+        {/* <Route path='/sign-up' render={props => <FormikUserSignUpForm {...props} />} /> */}
+
+        <Route exact path='/login' render={props => <SignIn {...props} />} />
       </div>
       <div>
         <PrivateRoute path="/protected" component={Profile} />

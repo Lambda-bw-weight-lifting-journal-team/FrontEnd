@@ -11,7 +11,8 @@ import {
 //   primaryemail: ""
 // });
 
-// const d = newDate();
+
+const d = new Date();
 
 const newUserState = {
   id: Date.now(),
@@ -20,7 +21,7 @@ const newUserState = {
   primaryemail: "",
   exercises: [{
     id: Date.now(),
-    user_id: id,
+    // user_id: newUserState.id,
     name: "",
     amount_lifted: null,
     units: "",
