@@ -4,11 +4,31 @@ import {
   CREATE_USER_FAIL
 } from "../actions/SignupAction";
 
-const newUserState = () => ({
+// const newUserState = () => ({
+//   id: Date.now(),
+//   username: "",
+//   password: "",
+//   primaryemail: ""
+// });
+
+const d = newDate();
+
+const newUserState = {
+  id: Date.now(),
   username: "",
   password: "",
-  primaryemail: ""
-});
+  primaryemail: "",
+  exercises: [{
+    id: Date.now(),
+    user_id: id,
+    name: "",
+    amount_lifted: null,
+    units: "",
+    reps_completed: null,
+    date: d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear(),
+    body_region: ""
+  }]
+};
 
 export const signUpreducer = (state = newUserState, action) => {
   switch (action.type) {
