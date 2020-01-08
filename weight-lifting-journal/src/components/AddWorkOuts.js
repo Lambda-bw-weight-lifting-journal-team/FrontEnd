@@ -1,7 +1,7 @@
 //form to add workouts that shows new work outs and also has a buttom to delete them or edit them 
 import React, { useState } from "react";
 
-function AddWorkOuts() {
+function AddWorkOuts(props) {
   const [workouts, setworkouts] = useState([{ value: null }]);
 
   function handleChange(i, event) {
@@ -14,12 +14,14 @@ function AddWorkOuts() {
     const values = [...workouts];
     values.push({ value: null });
     setworkouts(values);
+    props.addMode = false;
   }
 
   function handleRemove(i) {
     const values = [...workouts];
     values.splice(i, 1);
     setworkouts(values);
+    props.addMode = false;
   }
 
   return (
