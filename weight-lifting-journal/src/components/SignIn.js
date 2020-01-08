@@ -41,8 +41,8 @@ const StyledLogin = styled.div`
         });
     }
     return (
-      <div>
-        <div> 
+        <StyledLogin> 
+            <h1>Login</h1>
           <form onSubmit={submitForm} className='forms'>
 
               <label htmlFor="username">Username: </label>
@@ -68,8 +68,7 @@ const StyledLogin = styled.div`
 
               <button type='submit'>Log In</button>
           </form>
-          </div>
-        </div>
+          </StyledLogin>
     )};
 
     export default SignIn;
