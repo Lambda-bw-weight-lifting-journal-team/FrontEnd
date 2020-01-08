@@ -19,34 +19,34 @@ const StyledDiv = styled.div`
   `;
 
 function UserForm({ values, errors, touched, status }) {
-  const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    status && setUsers(users => [...users, status]);
-  }, [status])
+    useEffect(() => {
+        status && setUsers(users => [...users, status]);
+    }, [status])
 
 
-    
+
     return (
         <StyledDiv>
             <Form>
                 <h1>User Registration</h1>
                 <label>
-                    User Name: 
+                    User Name:
                     <Field type="text" name="username" placeholder="Enter a User Name" autoComplete="none" />
                     {touched.name && errors.name && (
                         <p className="errors">{errors.name}</p>
                     )}
                 </label>
-                <br/>
+                <br />
                 <label>
                     Password:
-                <Field type="password" name="password" placeholder="Enter a Password"  autoComplete="none"/>
+                <Field type="password" name="password" placeholder="Enter a Password" autoComplete="none" />
                     {touched.password && errors.password && (
                         <p className="errors">{errors.password}</p>
-                    )}                    
+                    )}
                 </label>
-                <br/>
+                <br />
                 <button type="submit" >Submit</button>
             </Form>
             {users.map(user => (
@@ -57,7 +57,7 @@ function UserForm({ values, errors, touched, status }) {
                 </div>
             ))}
         </StyledDiv>
-        
+
     )
 }
 
@@ -74,15 +74,15 @@ const FormikUserForm = withFormik({
     }),
     handleSubmit(values, { setStatus, resetForm }) {
         axios.post('https://bw-weight-lifting.herokuapp.com/api/auth/register', values)
-        .then(res => {
-            setStatus(res.data);
-            console.log(res);
-        })
-        .catch(err => {
-            console.log(err.response);
-        })
-        .finally(resetForm())
+            .then(res => {
+                setStatus(res.data);
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err.response);
+            })
+            .finally(resetForm())
     }
 })(UserForm)
 
-export default FormikUserSignUpForm;
+export default FormikUserForm;
