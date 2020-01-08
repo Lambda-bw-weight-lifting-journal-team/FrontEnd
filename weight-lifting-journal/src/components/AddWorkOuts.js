@@ -36,29 +36,29 @@ function AddWorkOuts(props) {
         return (
           <form>
             <div key={`${workout}-${idx}`}>
-            <label>Workout: 
+              <label>Workout:
               <input
-                type="text"
-                placeholder="Enter Workout Name"
-                value={workout.value || ""}
-                onChange={e => handleChange(idx, e)}
-              /></label> <br/>
-            <label>Weight:
-              <input 
-                placeholder="Weight (lb)"
-                type="number"
-                name="weight"
-      					value={workout.weight}
-                />
-            </label><br/>
-            <label>Reps:
+                  type="text"
+                  placeholder="Enter Workout Name"
+                  value={workout.value || ""}
+                  onChange={e => handleChange(idx, e)}
+                /></label> <br />
+              <label>Weight:
               <input
-                placeholder="Repetitions"
-                name="reps"
-                type="number"
-                value={workout.reps}
+                  placeholder="Weight (lb)"
+                  type="number"
+                  name="weight"
+                  value={workout.weight}
                 />
-            </label>
+              </label><br />
+              <label>Reps:
+              <input
+                  placeholder="Repetitions"
+                  name="reps"
+                  type="number"
+                  value={workout.reps}
+                />
+              </label>
               <button type="button" onClick={() => handleRemove(idx)}>
                 X
               </button>
