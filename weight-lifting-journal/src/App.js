@@ -3,10 +3,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
 // components
 import SignIn from './components/SignIn';
-import FormikUserSignUpForm from './components/SignUp';
+import FormikUserForm from './components/SignUp';
 import Profile from "./components/Profile";
-import PrivateRoute from "./components/PrivateRoute";
-import Navigation from './components/Navigation';
+// import PrivateRoute from "./components/PrivateRoute";
+import { PrivateRoute } from './utils/PrivateRoute'
+import { Navigation } from './components/Navigation';
 
 
 
@@ -15,13 +16,14 @@ const App = () => {
     <Router>
       <div className="App">
         <Navigation />
-        <Route exact path='/' render={props => <FormikUserSignUpForm {...props} />} />
-        {/* <Route path='/sign-up' render={props => <FormikUserSignUpForm {...props} />} /> */}
+        <PrivateRoute path="/profile" component={Profile}>
+          <Route exact path='/profile' render={props => <Profile {...props} />} />
+        </PrivateRoute>
 
+        <Route exact path='/' render={props => <FormikUserForm {...props} />} />
+
+        <Route path='/signup' render={props => <FormikUserForm {...props} />} />
         <Route exact path='/login' render={props => <SignIn {...props} />} />
-      </div>
-      <div>
-        <PrivateRoute path="/protected" component={Profile} />
       </div>
     </Router>
   );
