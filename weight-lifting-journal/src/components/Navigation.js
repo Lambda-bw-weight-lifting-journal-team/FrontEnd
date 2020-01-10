@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+<<<<<<< HEAD
+=======
 //import MarketingPage from './MarketingPage';
 //import AboutPage from './AboutPage';
+>>>>>>> 69895a24b52e00696197cc26a9095e35b8b99e4c
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
@@ -57,6 +60,28 @@ const StyledA = styled.a`
     margin-right: 30px;
 `;
 
+<<<<<<< HEAD
+export const Navigation = () => {
+  return (
+    <div>
+      <Navi>
+        <Title>Weightlifting Journal</Title>
+        <NavLinks>
+          <StyledLink to="/"> Home </StyledLink>
+          <StyledLink to="/sign-in"> Sign In </StyledLink>
+          <StyledLink to="/sign-up"> Sign Up </StyledLink>
+        </NavLinks>
+      </Navi>
+      <Switch>
+        <Route exact path="/sign-in">
+          <SignIn />
+        </Route>
+        <Route exact path="/sign-up">
+          <SignUp />
+        </Route>
+      </Switch>
+    </div>
+=======
 const Navigation = () => {
     return (
         <div>
@@ -84,6 +109,7 @@ const Navigation = () => {
                     </Route>
                 </Switch>
         </div>
+>>>>>>> 69895a24b52e00696197cc26a9095e35b8b99e4c
 
   );
 };
