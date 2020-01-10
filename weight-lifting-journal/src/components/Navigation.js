@@ -52,35 +52,49 @@ const StyledLink = styled(Link)`
     } */
 `;
 
-const Navigation = () => {
-    return (
-        <div>
-            <Navi>
-                <Title>Weightlifting Journal</Title>
-                <NavLinks>
-                    <StyledLink to="/"> Home </StyledLink>
-                    <StyledLink to="/about-page"> About </StyledLink>
-                    <StyledLink to="/sign-in"> Sign In </StyledLink>
-                    <StyledLink to="/sign-up"> Sign Up </StyledLink>
-                </NavLinks>
-            </Navi>
-                <Switch>
-                    <Route exact path="/">
-                        <MarketingPage/>
-                    </Route>
-                    <Route exact path="/about-page">
-                        <AboutPage />
-                    </Route>
-                    <Route exact path="/sign-in">
-                        <SignIn />
-                    </Route>
-                    <Route exact path="/sign-up">
-                        <SignUp />
-                    </Route>
-                </Switch>
-        </div>
+export const Navigation = () => {
+  return (
+    <div>
+      <Navi>
+        <Title>Weightlifting Journal</Title>
+        <NavLinks>
+          <StyledLink to="/"> Home </StyledLink>
+          <StyledLink to="/about-page"> About </StyledLink>
+          <StyledLink to="/sign-in"> Sign In </StyledLink>
+          <StyledLink to="/sign-up"> Sign Up </StyledLink>
+        </NavLinks>
+      </Navi>
+      <Switch>
+        <Route exact path="/">
+          <MarketingPage />
+        </Route>
+        <Route exact path="/about-page">
+          <AboutPage />
+        </Route>
+        <Route exact path="/sign-in">
+          <SignIn />
+        </Route>
+        <Route exact path="/sign-up">
+          <SignUp />
+        </Route>
+      </Switch>
+    </div>
 
-    );
+  );
+};
+
+export const navBar = () => {
+  return (
+    <div>
+      <Navi>
+        <Title>Weightlifting journal</Title>
+        <NavLinks>
+          <StyledLink to="/"> Home </StyledLink>
+          <StyledLink to="/about-page"> About </StyledLink>
+        </NavLinks>
+      </Navi>
+    </div>
+  )
 }
 
-export default Navigation;
+// export default Navigation;

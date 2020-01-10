@@ -1,24 +1,20 @@
 import {
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
+} from "../actions/LoginAction";
+import {
   CREATE_USER_START,
   CREATE_USER_SUCCESS,
   CREATE_USER_FAIL
 } from "../actions/SignupAction";
 
-// const newUserState = () => ({
-//   id: Date.now(),
-//   username: "",
-//   password: "",
-//   primaryemail: ""
-// });
-
-
 const d = new Date();
 
-const newUserState = {
+const newUserState = () => ({
   id: Date.now(),
   username: "",
   password: "",
-  primaryemail: "",
   exercises: [{
     id: Date.now(),
     // user_id: newUserState.id,
@@ -29,7 +25,7 @@ const newUserState = {
     date: d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear(),
     body_region: ""
   }]
-};
+});
 
 export const signUpreducer = (state = newUserState, action) => {
   switch (action.type) {
@@ -38,7 +34,6 @@ export const signUpreducer = (state = newUserState, action) => {
         ...state,
         username: action.payload,
         password: action.payload,
-        primaryemail: action.payload
       };
     case CREATE_USER_SUCCESS:
       return {
@@ -48,6 +43,31 @@ export const signUpreducer = (state = newUserState, action) => {
       return {
         ...state,
         error: action.payload.error
+      };
+    default:
+      return state;
+  }
+};
+const userState = () => ({
+  username: "",
+  password: ""
+});
+export const loginReducer = (state = userState, action) => {
+  switch (action.type) {
+    case LOGIN_START:
+      return {
+        ...state,
+        username: action.payload,
+        password: action.payload
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state
+      };
+    case LOGIN_FAIL:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
