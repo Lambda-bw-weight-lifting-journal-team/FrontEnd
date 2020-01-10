@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import styled from 'styled-components'
+//import { Motion, spring } from 'react-motion';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -28,7 +29,12 @@ function UserForm({ values, errors, touched, status }) {
 
 
     return (
-        <StyledDiv>
+        // <Motion 
+        // defaultStyle={{x: -200, opacity: 0}} 
+        // style={{x: spring(0), opacity:1}}
+        // >
+            // {style => (
+        <StyledDiv /*style={{opacity: style.opacity }}*/>
             <Form>
                 <h1>User Registration</h1>
                 <label>
@@ -57,7 +63,8 @@ function UserForm({ values, errors, touched, status }) {
                 </div>
             ))}
         </StyledDiv>
-
+    //    )}
+    //    </Motion>
     )
 }
 
