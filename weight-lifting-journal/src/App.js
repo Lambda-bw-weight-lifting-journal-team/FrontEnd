@@ -5,9 +5,11 @@ import { Route } from "react-router-dom";
 import SignIn from './components/SignIn';
 import FormikUserForm from './components/SignUp';
 import Profile from "./components/Profile";
+import Navigation from './components/Navigation';
+
 // import PrivateRoute from "./components/PrivateRoute";
 import { PrivateRoute } from './utils/PrivateRoute'
-import { Navigation } from './components/Navigation';
+// import { Navigation } from './components/Navigation';
 
 
 

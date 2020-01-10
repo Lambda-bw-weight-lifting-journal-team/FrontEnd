@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+<<<<<<< HEAD
+=======
+//import MarketingPage from './MarketingPage';
+//import AboutPage from './AboutPage';
+>>>>>>> 69895a24b52e00696197cc26a9095e35b8b99e4c
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
@@ -49,7 +54,13 @@ const StyledLink = styled(Link)`
         text-decoration: none;
     } */
 `;
+const StyledA = styled.a`
+    color: white;
+    font-style: none;
+    margin-right: 30px;
+`;
 
+<<<<<<< HEAD
 export const Navigation = () => {
   return (
     <div>
@@ -70,22 +81,51 @@ export const Navigation = () => {
         </Route>
       </Switch>
     </div>
+=======
+const Navigation = () => {
+    return (
+        <div>
+            <Navi>
+                <Title>Weightlifting Journal</Title>
+                <NavLinks>
+                    <StyledA href="https://angry-pasteur-7b13fe.netlify.com/index.html"> Home </StyledA>
+                    <StyledA href="https://angry-pasteur-7b13fe.netlify.com/about.html"> About </StyledA>
+                    <StyledLink to="/sign-in"> Sign In </StyledLink>
+                    <StyledLink to="/sign-up"> Sign Up </StyledLink>
+                </NavLinks>
+            </Navi>
+                <Switch>
+                    {/* <Route exact path="/">
+                        <MarketingPage/>
+                    </Route>
+                    <Route exact path="/about-page">
+                        <AboutPage />
+                    </Route> */}
+                    <Route exact path="/sign-in">
+                        <SignIn />
+                    </Route>
+                    <Route exact path="/sign-up">
+                        <SignUp />
+                    </Route>
+                </Switch>
+        </div>
+>>>>>>> 69895a24b52e00696197cc26a9095e35b8b99e4c
 
   );
 };
 
-export const navBar = () => {
-  return (
-    <div>
-      <Navi>
-        <Title>Weightlifting journal</Title>
-        <NavLinks>
-          <StyledLink to="/"> Home </StyledLink>
-          <StyledLink to="/about-page"> About </StyledLink>
-        </NavLinks>
-      </Navi>
-    </div>
-  )
-}
+// export const navBar = () => {
+//   return (
+//     <div>
+//       <Navi>
+//         <Title>Weightlifting journal</Title>
+//         <NavLinks>
+//           <StyledLink to="/"> Home </StyledLink>
+//           <StyledLink to="/about-page"> About </StyledLink>
+//         </NavLinks>
+//       </Navi>
+//     </div>
+//   )
+// }
 
-// export default Navigation;
+export default Navigation;
