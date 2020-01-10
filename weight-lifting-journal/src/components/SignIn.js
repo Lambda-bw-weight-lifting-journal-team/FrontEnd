@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { withFormik, Form, Field } from 'formik';
-import * as Yup from "yup";
 import axios from "axios";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+//import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from 'styled-components';
 
 const StyledLogin = styled.div`
