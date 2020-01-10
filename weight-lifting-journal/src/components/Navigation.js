@@ -85,7 +85,21 @@ const Navigation = () => {
                 </Switch>
         </div>
 
-    );
-}
+  );
+};
+
+// export const navBar = () => {
+//   return (
+//     <div>
+//       <Navi>
+//         <Title>Weightlifting journal</Title>
+//         <NavLinks>
+//           <StyledLink to="/"> Home </StyledLink>
+//           <StyledLink to="/about-page"> About </StyledLink>
+//         </NavLinks>
+//       </Navi>
+//     </div>
+//   )
+// }
 
 export default Navigation;
