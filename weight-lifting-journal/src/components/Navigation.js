@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import MarketingPage from './MarketingPage';
-import AboutPage from './AboutPage';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
@@ -59,18 +57,11 @@ export const Navigation = () => {
         <Title>Weightlifting Journal</Title>
         <NavLinks>
           <StyledLink to="/"> Home </StyledLink>
-          <StyledLink to="/about-page"> About </StyledLink>
           <StyledLink to="/sign-in"> Sign In </StyledLink>
           <StyledLink to="/sign-up"> Sign Up </StyledLink>
         </NavLinks>
       </Navi>
       <Switch>
-        <Route exact path="/">
-          <MarketingPage />
-        </Route>
-        <Route exact path="/about-page">
-          <AboutPage />
-        </Route>
         <Route exact path="/sign-in">
           <SignIn />
         </Route>

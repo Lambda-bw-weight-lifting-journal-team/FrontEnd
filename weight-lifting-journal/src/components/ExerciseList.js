@@ -68,6 +68,21 @@ return (
       <Link className='add-workout-button' to='/profile/add-workout'>
         <div>Add Workout</div>
       </Link>
-    </div>
-  </div>
+      </div>
+        <div>
+        {exerciseList.map(plant => (
+          <Exercise
+            exerciseList={exerciseList}
+            setexercise={setExerciseList}
+            exercise={exercise}
+            value={exercise.id}
+            key={exercise.id}
+            name={exercise.nickname}
+            area={exercise.exerciseArea}
+            />
+        ))}
+        </div>
+      </div>
 )
+
+export default ExerciseList;
