@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import axios from "axios";
-<<<<<<< HEAD
-=======
-
->>>>>>> 69895a24b52e00696197cc26a9095e35b8b99e4c
 import styled from 'styled-components';
 
 const StyledLogin = styled.div`
