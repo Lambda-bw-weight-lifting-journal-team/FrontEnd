@@ -45,8 +45,29 @@ const ExerciseList = props => {
         console.log(userID);
         axios
           .get(
-            `https://bw-weight-lifting.herokuapp.com/api/users/:id`
+            `https://bw-weight-lifting.herokuapp.com/api/users/${userID}`
           )
+          .then(response => {
+            console.log(response.data);
+            setExerciseList(response.data);
+            console.log(exerciseList);
+          })
+          .catch(error => {
+            console.log('Something bonked up!', error);
+          });
       })
-  })
+      .catch(error => console.log('error', error));
+  }, []);
 }
+
+return (
+  <div>
+    <navBar />
+    <div>
+      <h3 className='workout-list'>My Workouts</h3>
+      <Link className='add-workout-button' to='/profile/add-workout'>
+        <div>Add Workout</div>
+      </Link>
+    </div>
+  </div>
+)
